@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Enf. Gislaine & Consultora</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../assets/css/bootstrap-custom.css">
+    <style>
+        body {
+            background-color: var(--bg-light);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        .login-container {
+            max-width: 450px;
+            width: 100%;
+            padding: 20px;
+        }
+        .card {
+            border: none;
+            border-radius: 10px;
+        }
+        .divider {
+            display: flex;
+            align-items: center;
+            margin: 25px 0;
+        }
+        .divider:before, .divider:after {
+            content: "";
+            flex: 1;
+            height: 1px;
+            background-color: #dee2e6;
+        }
+        .divider span {
+            padding: 0 15px;
+            color: var(--color-gray);
+        }
+    </style>
+</head>
+<body>
+    <div class="container login-container">
+        <div class="text-center mb-4">
+            <h1 class="h3 mb-3 fw-bold">Enf. <span class="text-primary">Gislaine</span> & Consultora</h1>
+        </div>
+        
+        <div class="card shadow-custom">
+            <div class="card-body p-4 p-md-5">
+                <h2 class="text-center text-secondary mb-4">Login</h2>
+                
+                <form id="form-login">
+                    <div class="mb-3">
+                        <label for="username" class="form-label">Usuário ou Email</label>
+                        <input type="text" class="form-control" id="username" name="username" placeholder="Digite seu usuário ou email" required>
+                    </div>
+                    
+                    <div class="mb-3">
+                        <label for="password" class="form-label">Senha</label>
+                        <input type="password" class="form-control" id="password" name="password" placeholder="Digite sua senha" required>
+                    </div>
+                    
+                    <div class="mb-3 text-end">
+                        <a href="recuperar-senha.html" class="text-primary">Esqueci minha senha</a>
+                    </div>
+                    
+                    <div class="d-grid">
+                        <button type="submit" class="btn btn-primary btn-lg">Entrar</button>
+                    </div>
+                </form>
+                
+                <div class="divider">
+                    <span>ou</span>
+                </div>
+                
+                <p class="text-center mb-3">Ainda não tem uma conta?</p>
+                <div class="d-grid">
+                    <a href="cadastro.html" class="btn btn-outline-primary btn-lg">Cadastre-se</a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="text-center mt-4">
+            <a href="landing.html" class="text-secondary">
+                <i class="fas fa-arrow-left me-1"></i> Voltar para a página inicial
+            </a>
+        </div>
+    </div>
+    
+    <!-- Bootstrap JS Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JS -->
+    <script type="module" src="../assets/js/login.js"></script>
+</body>
+</html> 

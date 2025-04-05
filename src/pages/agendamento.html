@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agendamento - Enf. Gislaine & Consultora</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../assets/css/bootstrap-custom.css">
+</head>
+<body>
+    <!-- Header / Navbar -->
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-light bg-white sticky-top">
+            <div class="container">
+                <a class="navbar-brand" href="#">Enf. <span>Gislaine</span> & Consultora</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="landing.html">Início</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="landing.html#servicos">Serviços</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="landing.html#localizacao">Localização</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="landing.html#contato">Contato</a>
+                        </li>
+                        <li class="nav-item ms-lg-2">
+                            <a class="btn btn-primary" href="#">Minha Conta</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main class="py-5">
+        <div class="container">
+            <div class="section-title">
+                <h2>Agendamento de Serviços</h2>
+                <p>Preencha o formulário abaixo para agendar seu atendimento</p>
+            </div>
+            
+            <div class="row mt-5">
+                <div class="col-lg-7 mb-4 mb-lg-0">
+                    <div class="card shadow-custom">
+                        <div class="card-body p-4">
+                            <h3 class="text-secondary mb-4">Dados do Agendamento</h3>
+                            <form id="formulario-agendamento">
+                                <div class="mb-3">
+                                    <label for="servico" class="form-label">Serviço</label>
+                                    <select class="form-select" id="servico" name="servico" required>
+                                        <option value="">Selecione um serviço</option>
+                                        <option value="consulta">Consulta de Enfermagem</option>
+                                        <option value="medicamentos">Administração de Medicamentos</option>
+                                        <option value="curativos">Curativos Especiais</option>
+                                        <option value="domiciliar">Atendimento Domiciliar</option>
+                                    </select>
+                                </div>
+                                
+                                <div class="row">
+                                    <div class="col-md-6 mb-3">
+                                        <label for="data" class="form-label">Data</label>
+                                        <input type="date" class="form-control" id="data" name="data" required>
+                                    </div>
+                                    <div class="col-md-6 mb-3">
+                                        <label for="horario" class="form-label">Horário</label>
+                                        <select class="form-select" id="horario" name="horario" required>
+                                            <option value="">Selecione um horário</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                
+                                <div class="mb-3">
+                                    <label class="form-label">Tipo de Atendimento</label>
+                                    <div class="d-flex gap-4">
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="radio" name="tipo-atendimento" id="tipo-consultorio" value="consultorio" checked>
+                                            <label class="form-check-label" for="tipo-consultorio">
+                                                No consultório
+                                            </label>
+                                        </div>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="radio" name="tipo-atendimento" id="tipo-domiciliar" value="domiciliar">
+                                            <label class="form-check-label" for="tipo-domiciliar">
+                                                Domiciliar
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="mb-3 endereco-domiciliar d-none">
+                                    <label for="endereco" class="form-label">Endereço para Atendimento Domiciliar</label>
+                                    <input type="text" class="form-control" id="endereco" name="endereco" placeholder="Rua, número, complemento">
+                                </div>
+                                
+                                <div class="mb-4">
+                                    <label for="observacoes" class="form-label">Observações ou Necessidades Especiais</label>
+                                    <textarea class="form-control" id="observacoes" name="observacoes" rows="3"></textarea>
+                                </div>
+                                
+                                <button type="submit" class="btn btn-primary btn-lg w-100">Confirmar Agendamento</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-5">
+                    <div class="card shadow-custom mb-4">
+                        <div class="card-body p-4">
+                            <h3 class="text-secondary mb-3">Datas Disponíveis</h3>
+                            <div class="calendario">
+                                <div class="d-flex justify-content-between align-items-center mb-3">
+                                    <button id="prev-month" class="btn btn-sm btn-outline-secondary"><i class="fas fa-chevron-left"></i></button>
+                                    <h4 id="current-month" class="mb-0">Abril 2023</h4>
+                                    <button id="next-month" class="btn btn-sm btn-outline-secondary"><i class="fas fa-chevron-right"></i></button>
+                                </div>
+                                
+                                <div class="table-responsive">
+                                    <table class="table table-borderless mb-0">
+                                        <thead>
+                                            <tr class="text-center">
+                                                <th>Dom</th>
+                                                <th>Seg</th>
+                                                <th>Ter</th>
+                                                <th>Qua</th>
+                                                <th>Qui</th>
+                                                <th>Sex</th>
+                                                <th>Sáb</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody id="dias-calendario" class="text-center">
+                                            <!-- Os dias do calendário serão inseridos via JavaScript -->
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                            
+                            <div class="d-flex justify-content-around mt-3">
+                                <div class="d-flex align-items-center">
+                                    <span class="d-inline-block rounded-circle me-2" style="width: 15px; height: 15px; background-color: var(--color-primary);"></span>
+                                    <small>Disponível</small>
+                                </div>
+                                <div class="d-flex align-items-center">
+                                    <span class="d-inline-block rounded-circle me-2" style="width: 15px; height: 15px; background-color: #e9ecef;"></span>
+                                    <small>Indisponível</small>
+                                </div>
+                                <div class="d-flex align-items-center">
+                                    <span class="d-inline-block rounded-circle me-2" style="width: 15px; height: 15px; background-color: var(--color-success);"></span>
+                                    <small>Selecionado</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="card shadow-custom">
+                        <div class="card-body p-4">
+                            <h3 class="text-secondary mb-3">Detalhes do Serviço</h3>
+                            
+                            <div id="detalhes-consulta">
+                                <h5 class="text-primary mb-3">Consulta de Enfermagem</h5>
+                                <p class="mb-2"><i class="fas fa-clock text-primary me-2"></i> Duração: 45 minutos</p>
+                                <p class="mb-2"><i class="fas fa-money-bill-wave text-primary me-2"></i> Valor: R$ 120,00</p>
+                                <p>Avaliação completa, verificação de sinais vitais, orientações de saúde e prevenção.</p>
+                            </div>
+                            
+                            <div id="detalhes-medicamentos" class="d-none">
+                                <h5 class="text-primary mb-3">Administração de Medicamentos</h5>
+                                <p class="mb-2"><i class="fas fa-clock text-primary me-2"></i> Duração: 30 minutos</p>
+                                <p class="mb-2"><i class="fas fa-money-bill-wave text-primary me-2"></i> Valor: R$ 80,00</p>
+                                <p>Aplicação segura de medicamentos injetáveis, soros e outras medicações prescritas.</p>
+                            </div>
+                            
+                            <div id="detalhes-curativos" class="d-none">
+                                <h5 class="text-primary mb-3">Curativos Especiais</h5>
+                                <p class="mb-2"><i class="fas fa-clock text-primary me-2"></i> Duração: 40 minutos</p>
+                                <p class="mb-2"><i class="fas fa-money-bill-wave text-primary me-2"></i> Valor: A partir de R$ 100,00</p>
+                                <p>Tratamento de feridas e lesões com técnicas avançadas e materiais específicos.</p>
+                            </div>
+                            
+                            <div id="detalhes-domiciliar" class="d-none">
+                                <h5 class="text-primary mb-3">Atendimento Domiciliar</h5>
+                                <p class="mb-2"><i class="fas fa-clock text-primary me-2"></i> Duração: 60 minutos</p>
+                                <p class="mb-2"><i class="fas fa-money-bill-wave text-primary me-2"></i> Valor: A partir de R$ 150,00</p>
+                                <p>Atendimento completo no conforto da sua casa, inclui deslocamento.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="pt-5 mt-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 mb-4 mb-md-0">
+                    <h5 class="footer-brand mb-3">Enf. <span>Gislaine</span> & Consultora</h5>
+                    <p class="mb-3">Cuidados profissionais para sua saúde e bem-estar, com atendimento humanizado e de qualidade.</p>
+                </div>
+                
+                <div class="col-md-4 mb-4 mb-md-0">
+                    <h5>Links Rápidos</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="landing.html">Início</a></li>
+                        <li class="mb-2"><a href="landing.html#sobre">Sobre</a></li>
+                        <li class="mb-2"><a href="landing.html#servicos">Serviços</a></li>
+                        <li class="mb-2"><a href="landing.html#localizacao">Localização</a></li>
+                        <li class="mb-2"><a href="landing.html#contato">Contato</a></li>
+                    </ul>
+                </div>
+                
+                <div class="col-md-4">
+                    <h5>Contato</h5>
+                    <p class="mb-2"><i class="fas fa-phone me-2 text-primary"></i> (11) 99999-9999</p>
+                    <p class="mb-2"><i class="fas fa-envelope me-2 text-primary"></i> contato@enfgislaine.com.br</p>
+                </div>
+            </div>
+            
+            <div class="footer-bottom text-center mt-4 py-3">
+                <p class="mb-0">&copy; 2023 Enf. Gislaine & Consultora. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JS -->
+    <script type="module" src="../assets/js/agendamento.js"></script>
+</body>
+</html> 

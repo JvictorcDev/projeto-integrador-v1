@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enf. Gislaine & Consultora - Redirecionando...</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Google Fonts - Poppins -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --color-primary: #9370DB; /* Lilás médio */
+            --color-secondary: #6A5ACD; /* Lilás mais escuro */
+            --color-accent: #D8BFD8; /* Lilás claro */
+            --color-light: #F8F9FA;
+            --color-dark: #212529;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            padding: 20px;
+            text-align: center;
+            background-color: var(--color-light);
+            color: var(--color-dark);
+        }
+        
+        h1 {
+            margin-bottom: 10px;
+            color: var(--color-secondary);
+        }
+        
+        span {
+            color: var(--color-primary);
+        }
+        
+        p {
+            margin-bottom: 30px;
+            font-size: 1.1rem;
+        }
+        
+        .loader {
+            border: 5px solid #f3f3f3;
+            border-radius: 50%;
+            border-top: 5px solid var(--color-primary);
+            width: 50px;
+            height: 50px;
+            animation: spin 1s linear infinite;
+            margin-bottom: 20px;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        a {
+            color: var(--color-primary);
+            text-decoration: none;
+            font-weight: 600;
+        }
+        
+        a:hover {
+            color: var(--color-secondary);
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-8 text-center">
+                <h1>Enf. <span>Gislaine</span> & Consultora</h1>
+                <p>Redirecionando para a página principal...</p>
+                
+                <div class="loader mx-auto"></div>
+                
+                <p>Se o redirecionamento não funcionar, <a href="src/pages/landing.html">clique aqui</a>.</p>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Bootstrap JS Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Redirecionar após 2 segundos
+        setTimeout(function() {
+            window.location.href = "src/pages/landing.html";
+        }, 2000);
+    </script>
+</body>
+</html>
